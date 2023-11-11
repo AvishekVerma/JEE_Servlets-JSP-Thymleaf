@@ -1,0 +1,11 @@
+<web-app>
+	<servlet>
+		<servlet-name>S01-FirstServlet</servlet-name>
+		<servlet-class>com.avishek.FirstServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>S01-FirstServlet</servlet-name>
+		<url-pattern>/demo</url-pattern>
+	</servlet-mapping>
+</web-app>
