@@ -1,0 +1,32 @@
+#Tomcat files
+Tomcat9.0
+
+
+#Spring or maven files
+.metadata
+.classpath
+bin
+.settings
+.project
+module-info.java
+springlib
+# Compiled class file
+.class
+
+# Log file
+.log
+
+# BlueJ files
+.ctxtgit 
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+.jar
+.war
+.nar
+.ear
+.zip
+.tar.gz
+.rar
