@@ -1,6 +1,12 @@
 #Tomcat files
 Tomcat9.0
-
+.settings
+build
+.classpath
+.gitignore
+.project
+MANIFEST.MF
+lib
 
 #Spring or maven files
 .metadata
