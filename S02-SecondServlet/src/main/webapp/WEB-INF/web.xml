@@ -1,0 +1,13 @@
+<web-app>
+	<servlet>
+		<servlet-name>SecondServlet</servlet-name>
+		<servlet-class>com.avishek.SecondServlet</servlet-class>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SecondServlet</servlet-name>
+		<url-pattern>/demo</url-pattern>
+	</servlet-mapping>
+
+</web-app>
