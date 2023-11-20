@@ -29,31 +29,31 @@ public class DbController extends HttpServlet {
 		}
 	}
 
-	public void init(ServletConfig config) throws ServletException {
+	public void init() throws ServletException {
 	
 		System.out.println("Config object created and got the values from config object...\n\n");
 		
 		String url = getInitParameter("url");
-//		String username = getInitParameter("username");
-//		String password = getInitParameter("password");
+		String username = getInitParameter("username");
+		String password = getInitParameter("password");
 		System.out.println(url);
-//		System.out.println(username);
-//		System.out.println(password);
+		System.out.println(username);
+		System.out.println(password);
 		
 //		String url = getInitParameter("url");
 //		String username = getInitParameter("username");
 //		String password = getInitParameter("password");
-//		
-//		System.out.println("url :: "+url+"\nusername :: "+username+"\npassword"+password );
 		
-//		try {
-//			connection = DriverManager.getConnection(url, username, password);
-//			if(connection != null) {
-//				System.out.println("Connection established successfully....");
-//			}
-//		}catch(SQLException e) {
-//				e.printStackTrace();
-//		}
+		System.out.println("url :: "+url+"\nusername :: "+username+"\npassword"+password );
+		
+		try {
+			connection = DriverManager.getConnection(url, username, password);
+			if(connection != null) {
+				System.out.println("Connection established successfully....");
+			}
+		}catch(SQLException e) {
+				e.printStackTrace();
+		}
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,13 +66,18 @@ public class DbController extends HttpServlet {
 		
 		try {
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("select id,name,age,address from student");
+			resultSet = statement.executeQuery("select sid,sname,sage,saddress from student");
+			out.println("<table border='1'>");
+			out.println("<tr><th>Id</th><th>Name</th><th>Age</th><th>Address</th></tr>");
 			while(resultSet.next()) {
-				out.println("<p>"+resultSet.getInt(1)+"</p>");
-				out.println("<p>"+resultSet.getString(2)+"</p>");
-				out.println("<p>"+resultSet.getInt(3)+"</p>");
-				out.println("<p>"+resultSet.getString(4)+"</p>");
+				out.println("<tr>");
+				out.println("<th>"+resultSet.getInt(1)+"</th>");
+				out.println("<th>"+resultSet.getString(2)+"</th>");
+				out.println("<th>"+resultSet.getInt(3)+"</th>");
+				out.println("<th>"+resultSet.getString(4)+"</th>");
+				out.println("</tr>");
 			}
+			out.println("</table>");
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
